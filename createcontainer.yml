@@ -1,0 +1,18 @@
+---
+- hosts: tag_Name_mynodes
+  become: yes
+  tasks:
+  - name: install pip
+    apt: 
+      name: python-pip
+  - name: install python-y
+    pip:
+      name: docker-py
+  - name: create docker container
+    docker_container:
+      name: mytom
+      image: tomcat
+      state: started 
+      ports:
+        - "8080:8080"
+      detach: yes

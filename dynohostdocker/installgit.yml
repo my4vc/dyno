@@ -1,0 +1,7 @@
+---
+- hosts: tag_Name_mynodes
+  become: yes
+  tasks:
+  - name: isntall git
+    apt:
+      name: git

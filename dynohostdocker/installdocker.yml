@@ -1,0 +1,14 @@
+---
+- hosts: tag_Name_mynodes
+  become: yes
+  tasks:
+  - name: downlod
+    command: curl -fsSL https://get.docker.com -o get-docker.sh 
+  - name: change permision
+    file:
+      path: /home/maha/get-docker.sh
+      mode: 0777
+  - name: install docker by execute shell file
+    shell:  /home/maha/get-docker.sh >> result.txt
+ 
+

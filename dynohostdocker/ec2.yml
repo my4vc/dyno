@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+#  become: yes
+  tasks:
+  - name: create instance
+    ec2:
+      key_name: devops
+      instance_type: t2.micro
+      image: ami-07fb606d4ab0c3e7f
+      region: ap-southeast-1
+      wait: yes  
+      group: MYSG
+      count: 3
+      vpc_subnet_id: subnet-0d516a44
+      assign_public_ip: yes
+      instance_tags:
+       web: mywebnodes
