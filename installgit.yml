@@ -1,7 +1,10 @@
 ---
-- hosts: tag_Name_mynodes
+- hosts: tag_Name_mynodes 
   become: yes
   tasks:
+  - name: update
+    apt:  
+      update_cache: yes
   - name: isntall git
     apt:
       name: git
